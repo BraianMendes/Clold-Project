@@ -33,7 +33,7 @@ Markdown is a lightweight markup language based on the formatting conventions th
 
 This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 
-### 2) Como usamos o Arduino + Wifi para nossa solução:		
+# 2) Como usamos o Arduino + Wifi para nossa solução:		
 
 Dillinger uses a number of open source projects to work properly:
 
@@ -50,7 +50,7 @@ Dillinger uses a number of open source projects to work properly:
 And of course Dillinger itself is open source with a [public repository][dill]
  on GitHub.
 
-### 3) Vendo nossos sensores alimentando as mensagens no MQTT:
+# 3) Vendo nossos sensores alimentando as mensagens no MQTT:
 
 Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
 
@@ -69,7 +69,7 @@ $ npm install --production
 $ NODE_ENV=production node app
 ```
 
-### 4) Fazendo as API's de TTS e STT responderem as requisições:
+# 4) Fazendo as API's de TTS e STT responderem as requisições:
 
 Realize suas requisições através dos seguintes links disponíveis para consulta diretamente na API:
 
@@ -80,7 +80,7 @@ Realize suas requisições através dos seguintes links disponíveis para consul
 | FETCH | [plugins/googledrive/README.md][PlGd] |
 | PUT | [plugins/onedrive/README.md][PlOd] |
 
-### 5) Utilizar API conversacional na aplicação ALTU:
+# 5) Utilizar API conversacional na aplicação ALTU:
 
 Want to contribute? Great!
 
@@ -105,7 +105,7 @@ $ karma test
 ```
 
 
-### 5) Utilizando o Python no server com auxílio da MathPI:		
+# 5) Utilizando o Python no server com auxílio da MathPI:		
 Dillinger is very easy to install and deploy in a Docker container.
 
 By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
