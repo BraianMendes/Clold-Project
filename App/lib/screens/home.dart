@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
         leading: new FlatButton(onPressed: null, child: new Image.asset('img/menuIcon.png'),),
         elevation: 0.0,
       ),
+      floatingActionButton: FloatingActionButton(onPressed: null, child: Icon(Icons.mic),),
     body: Column(
       children: <Widget>[
         SizedBox(height: 160.0,),

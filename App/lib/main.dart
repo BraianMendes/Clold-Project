@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:manuel_app/screens/home.dart';
 import 'package:flutter/services.dart';
+import 'package:manuel_app/screens/login.dart';
 
 
 void main(){
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepOrange,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomePage()
+      home: LoginScreen()
     );
   }
 }
