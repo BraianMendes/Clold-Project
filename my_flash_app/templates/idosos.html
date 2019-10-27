@@ -20,7 +20,7 @@
 <title>Nome e login dos idosos com 70 anos:</title>
 {% if result %}
 
-{% for row in result %}
+{% for oldAge in result %}
 
 {% endfor %}
 {% endif %}
@@ -31,8 +31,8 @@
             <th>Login</th>
         </tr>
         <tr>
-            <td> {{ row.nomeIdoso }}</td>
-            <td> {{ row.loginIdoso }}</td>
+            <td> {{ oldAge.nomeIdoso }}</td>
+            <td> {{ oldAge.loginIdoso }}</td>
         </tr>
     </tbody>
 </table>
