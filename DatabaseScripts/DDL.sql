@@ -1,4 +1,4 @@
-USE manuelDB;
+USE hackathon1;
 
 /* Criação da tabela de idosos separando campos de restrições */
 CREATE TABLE IF NOT EXISTS Idoso (

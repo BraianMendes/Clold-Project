@@ -32,13 +32,13 @@ INSERT INTO Doencas VALUES (00004, 'Hepatite Tipo C', 1001);
 INSERT INTO Doencas VALUES (00005, 'Câncer de Mama', 12);
 
 /* Iterações entre idosos e cuidadores, 1 iteração para cada idoso */
-INSERT INTO IteraçãoIdosoCuidador VALUES(1000, 1, '2019-10-26 16:30:45');
-INSERT INTO IteraçãoIdosoCuidador VALUES(11, 2, '2019-10-26 09:55:59');
-INSERT INTO IteraçãoIdosoCuidador VALUES(10, 2, '2019-10-26 12:05:02');
-INSERT INTO IteraçãoIdosoCuidador VALUES(1001, 1, '2019-10-26 06:23:23');
-INSERT INTO IteraçãoIdosoCuidador VALUES(12, 2, '2019-10-26 05:00:01');
+INSERT INTO IteraçãoIdosoCuidador VALUES(1, 1000, 1, '2019-10-26 16:30:45');
+INSERT INTO IteraçãoIdosoCuidador VALUES(2, 11, 2, '2019-10-26 09:55:59');
+INSERT INTO IteraçãoIdosoCuidador VALUES(3, 10, 2, '2019-10-26 12:05:02');
+INSERT INTO IteraçãoIdosoCuidador VALUES(4, 1001, 1, '2019-10-26 06:23:23');
+INSERT INTO IteraçãoIdosoCuidador VALUES(5, 12, 2, '2019-10-26 05:00:01');
 
 /* Inserção de 3 mensagens entre 2 idosos */
-INSERT INTO Mensagem VALUES(1000, 1001, 'Delisario, quanto tempo! Você está bem?');
-INSERT INTO Mensagem VALUES(1001, 1000, 'Estou sim Flávio... vamos nos ver no natal?');
-INSERT INTO Mensagem VALUES(1000, 1001, 'Vamos sim! Mais perto da data nos falamos.');
+INSERT INTO Mensagem VALUES(1, 1000, 1001, 'Delisario, quanto tempo! Você está bem?');
+INSERT INTO Mensagem VALUES(2, 1001, 1000, 'Estou sim Flávio... vamos nos ver no natal?');
+INSERT INTO Mensagem VALUES(3, 1000, 1001, 'Vamos sim! Mais perto da data nos falamos.');
