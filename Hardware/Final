@@ -2,11 +2,18 @@
 #include <PubSubClient.h>
 #include "DHT.h"
 
+//Temperatura e umidade
 #define DHTPIN D7 // pino que estamos conectado
 #define DHTTYPE DHT11 // DHT 11
 
 DHT dht(DHTPIN, DHTTYPE);
 
+//Gás Inflamável
+const int pinoSensor = 2;
+int gas;
+char presenca [3]
+
+//MQTT
 const char* ssid = "Mi henrique"; // Enter your WiFi name
 const char* password =  "santosfc"; // Enter WiFi password
 const char* mqttServer = "farmer.cloudmqtt.com";
@@ -31,10 +38,16 @@ void callback(char* topic, byte* payload, unsigned int length) {
 PubSubClient client(mqttServer, mqttPort, callback, espClient);
 
 void setup() {
+  //Temperatura e Umidade
   Serial.begin(115200);
   Serial.println("DHTxx test!");
   dht.begin();
 
+  //Gás Inflamável
+  Serial.begin(115200);
+  pinMode(pinoSensor, INPUT); //DEFINE O PINO COMO ENTRADA
+
+  //MQTT
   WiFi.begin(ssid, password);
   while (WiFi.status() != (WL_CONNECTED)) {
     delay(500);
@@ -61,7 +74,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  {
+  { //Temperatura e Umidade
     float h = dht.readHumidity();
     float t = dht.readTemperature();
     if (isnan(t) || isnan(h))
@@ -78,13 +91,33 @@ void loop() {
       Serial.println(" *C");
       delay (2000);
     }
+    //Gás Inflamável
+    if (digitalRead(pinoSensor) == LOW) { //SE A LEITURA DO PINO FOR IGUAL A LOW, FAZ
+      gas = 1;
+    } else {
+      gas = 0;
+    }
+    Serial.println ("Presença de gás inflamável: ");
+    if (gas == 1)
+    {
+      Serial.println ("Sim");
+      presenca = sim;
+    }
+    else
+    {
+      Serial.println ("Não");
+      presenca = nao;
+    }
 
+    //MQTT
     char numero[15];
-    
+
     sprintf(numero, "%.1f", t);
     client.publish("Temperatura", numero);
     sprintf(numero, "%.1f", h);
     client.publish("Umidade", numero);
+    client.publish("Gás", presenca);
+    
     client.loop();
 
   }
