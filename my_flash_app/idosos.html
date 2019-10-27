@@ -1,0 +1,38 @@
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<meta charset="UTF-8">
+<title>Nome e login dos idosos com 70 anos:</title>
+{% if result %}
+
+{% for row in result %}
+
+{% endfor %}
+{% endif %}
+<table id="Idosos" style="width:100%">
+    <tbody>
+        <tr>
+            <th>Nome</th>
+            <th>Login</th>
+        </tr>
+        <tr>
+            <td> {{ row.nomeIdoso }}</td>
+            <td> {{ row.loginIdoso }}</td>
+        </tr>
+    </tbody>
+</table>
