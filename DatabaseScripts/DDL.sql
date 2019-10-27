@@ -50,3 +50,11 @@ CREATE TABLE IF NOT EXISTS Mensagem (
 ) ENGINE=INNODB;
 ALTER TABLE Mensagem ADD CONSTRAINT fk_idoso_remetente FOREIGN KEY(idosoRemetente) REFERENCES Idoso(idIdoso) ON UPDATE CASCADE;  
 ALTER TABLE Mensagem ADD CONSTRAINT fk_idoso_destinatario FOREIGN KEY(idosoDestinatario) REFERENCES Idoso(idIdoso) ON UPDATE CASCADE; 
+
+/* Criação da tabela de Medicoes que esperarão os dados colhidos do Idoso*/
+CREATE TABLE IF NOT EXISTS Medicoes (
+	fkIdoso INT NOT NULL,
+	temperatura FLOAT NOT NULL,
+    umidade FLOAT NOT NULL
+) ENGINE=INNODB;
+ALTER TABLE Medicoes ADD CONSTRAINT fk_idoso_medicao FOREIGN KEY(fkIdoso) REFERENCES Idoso(idIdoso) ON DELETE CASCADE; 

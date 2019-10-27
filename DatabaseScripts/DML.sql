@@ -5,6 +5,7 @@ SELECT * FROM Cuidador;
 SELECT * FROM IteraçãoIdosoCuidador;
 SELECT * FROM Doencas;
 SELECT * FROM Mensagem;
+SELECT * FROM Medicoes;
 
 /* Inserção de 5 QR Codes que serão os ID's dos Idosos */
 INSERT INTO QrCode VALUES(1000);
