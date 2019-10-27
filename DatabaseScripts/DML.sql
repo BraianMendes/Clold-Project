@@ -6,6 +6,7 @@ SELECT * FROM IteraçãoIdosoCuidador;
 SELECT * FROM Doencas;
 SELECT * FROM Mensagem;
 SELECT * FROM Medicoes;
+SELECT CAST(COUNT(*) AS CHAR) AS 'Numero de Idosos:' from Idoso;
 
 /* Inserção de 5 QR Codes que serão os ID's dos Idosos */
 INSERT INTO QrCode VALUES(1000);
