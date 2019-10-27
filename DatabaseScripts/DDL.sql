@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS Idoso (
 ) ENGINE=INNODB;
 ALTER TABLE Idoso ADD CONSTRAINT pk_idoso PRIMARY KEY(senhaIdoso, loginIdoso); 
 ALTER TABLE Idoso ADD CONSTRAINT fk_idoso_qrCode FOREIGN KEY(idIdoso) REFERENCES QrCode(chaveIdoso); 
+ALTER TABLE Idoso ADD COLUMN active VARCHAR(3);
 
 /* Criação da tabela de qrCodes, com campos e restrições inline */
 CREATE TABLE IF NOT EXISTS QrCode (
@@ -22,6 +23,15 @@ CREATE TABLE IF NOT EXISTS Cuidador (
      loginCuidador VARCHAR(240) UNIQUE NOT NULL,
      senhaCuidador VARCHAR(10) UNIQUE NOT NULL
 ) ENGINE=INNODB;
+
+/* Criação da tabela de Contato com campos e restrições, relacao com idoso 1:N*/
+CREATE TABLE IF NOT EXISTS Contato (
+	 idContato INT AUTO_INCREMENT PRIMARY KEY,
+     nomeContato VARCHAR(240) NOT NULL,
+     telefoneContato VARCHAR(11) UNIQUE NOT NULL,
+     fkContatoIdoso INT NOT NULL
+) ENGINE=INNODB;
+ALTER TABLE Contato ADD CONSTRAINT fk_contato_idoso FOREIGN KEY(fkContatoIdoso) REFERENCES Idoso(idIdoso);
 
 /* Criação da tabela de IteraçãoIdosoCuidador separando campos de restrições */
 CREATE TABLE IF NOT EXISTS IteraçãoIdosoCuidador (

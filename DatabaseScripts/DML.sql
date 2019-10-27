@@ -6,7 +6,11 @@ SELECT * FROM IteraçãoIdosoCuidador;
 SELECT * FROM Doencas;
 SELECT * FROM Mensagem;
 SELECT * FROM Medicoes;
+SELECT * FROM Contato;
+
+/* Consultas usadas na interface do Flutter */
 SELECT CAST(COUNT(*) AS CHAR) AS 'Numero de Idosos:' from Idoso;
+SELECT USER(),CURRENT_USER();
 
 /* Inserção de 5 QR Codes que serão os ID's dos Idosos */
 INSERT INTO QrCode VALUES(1000);
@@ -21,6 +25,13 @@ INSERT INTO Idoso VALUES (11, 'Antonio Carlos Tonagga', 60, 'antoca', 'act2708')
 INSERT INTO Idoso VALUES (10, 'Cesar Silva Torres', 89, 'cst111', 'acesar1111');
 INSERT INTO Idoso VALUES (1001, 'Delisario Nunes', 92, 'delin3', 'delisarionnm');
 INSERT INTO Idoso VALUES (12, 'Augusto Marinho Manso', 67, 'aumam2', 'aug21021991');
+
+/* Inserção de 5 Contatos para Idosos diferentes */
+INSERT INTO Contato VALUES (1, 'Maria Benedita', '35988742343', 1000);
+INSERT INTO Contato VALUES (2, 'Carlos Montana Filho', '35999433774', 11);
+INSERT INTO Contato VALUES (3, 'Bettina Layers Friedmann', '11999994790', 10);
+INSERT INTO Contato VALUES (4, 'Francine Gomes da Fonseca', '35994455222', 1001);
+INSERT INTO Contato VALUES (5, 'Sergio Tamboridguy', '35995555248', 12);
 
 /* Inserção de 2 Cuidadores */
 INSERT INTO Cuidador VALUES (1, 'MarianaCaroline', '#ccc1221');
