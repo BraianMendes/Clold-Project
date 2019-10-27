@@ -1,0 +1,26 @@
+const int pinoSensor = 2;
+int gas;
+char presenca [3];
+void setup(){
+  Serial.begin(115200);
+  pinMode(pinoSensor, INPUT); //DEFINE O PINO COMO ENTRADA
+}
+
+void loop(){
+    if (digitalRead(pinoSensor) == LOW) { //SE A LEITURA DO PINO FOR IGUAL A LOW, FAZ
+      gas = 1;
+    } else {
+      gas = 0;
+    }
+    Serial.println ("Presença de gás inflamável: ");
+    if (gas == 1)
+    {
+      Serial.println ("Sim");
+      presenca = sim;
+    }
+    else
+    {
+      Serial.println ("Não");
+      presenca = nao;
+    }
+}
