@@ -10,8 +10,7 @@ DHT dht(DHTPIN, DHTTYPE);
 
 //Gás Inflamável
 const int pinoSensor = 2;
-int gas;
-char presenca [3]
+float gas;
 
 //MQTT
 const char* ssid = "Mi henrique"; // Enter your WiFi name
@@ -44,7 +43,6 @@ void setup() {
   dht.begin();
 
   //Gás Inflamável
-  Serial.begin(115200);
   pinMode(pinoSensor, INPUT); //DEFINE O PINO COMO ENTRADA
 
   //MQTT
@@ -89,7 +87,7 @@ void loop() {
       Serial.print("Temperatura: ");
       Serial.print(t);
       Serial.println(" *C");
-      delay (2000);
+      delay (7000);
     }
     //Gás Inflamável
     if (digitalRead(pinoSensor) == LOW) { //SE A LEITURA DO PINO FOR IGUAL A LOW, FAZ
@@ -101,22 +99,21 @@ void loop() {
     if (gas == 1)
     {
       Serial.println ("Sim");
-      presenca = sim;
     }
     else
     {
       Serial.println ("Não");
-      presenca = nao;
     }
 
     //MQTT
     char numero[15];
 
     sprintf(numero, "%.1f", t);
-    client.publish("Temperatura", numero);
+    client.publish("Temperatura", numero); //"tópico", mensagem
     sprintf(numero, "%.1f", h);
     client.publish("Umidade", numero);
-    client.publish("Gás", presenca);
+    sprintf (numero, "%.1f", gas);
+    client.publish("Gas", numero);
     
     client.loop();
 
