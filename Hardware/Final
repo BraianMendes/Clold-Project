@@ -1,0 +1,91 @@
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include "DHT.h"
+
+#define DHTPIN D7 // pino que estamos conectado
+#define DHTTYPE DHT11 // DHT 11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+const char* ssid = "Mi henrique"; // Enter your WiFi name
+const char* password =  "santosfc"; // Enter WiFi password
+const char* mqttServer = "farmer.cloudmqtt.com";
+const int mqttPort = 14290;
+const char* mqttUser = "mwieijqc";
+const char* mqttPassword = "quULWouPWVqt";
+
+WiFiClient espClient;
+//PubSubClient client(espClient);
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  // handle message arrived
+  Serial.print("Message arrived in topic: ");
+  Serial.println(topic);
+
+  Serial.print("Message:");
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+}
+
+PubSubClient client(mqttServer, mqttPort, callback, espClient);
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("DHTxx test!");
+  dht.begin();
+
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != (WL_CONNECTED)) {
+    delay(500);
+    Serial.println("Connecting to WiFi..");
+  }
+  Serial.println("Connected to the WiFi network");
+
+  while (!client.connected()) {
+    Serial.println("Connecting to MQTT...");
+    if (client.connect("yrdtrtr1", mqttUser, mqttPassword )) {
+      Serial.println("connected");
+    } else {
+
+      Serial.print("failed with state ");
+      Serial.print(client.state());
+      delay(2000);
+    }
+  }
+
+}
+
+
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  {
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+    if (isnan(t) || isnan(h))
+    {
+      Serial.println("Failed to read from DHT");
+    }
+    else
+    {
+      Serial.print("Umidade: ");
+      Serial.print(h);
+      Serial.print(" %t");
+      Serial.print("Temperatura: ");
+      Serial.print(t);
+      Serial.println(" *C");
+      delay (2000);
+    }
+
+    char numero[15];
+    
+    sprintf(numero, "%.1f", t);
+    client.publish("Temperatura", numero);
+    sprintf(numero, "%.1f", h);
+    client.publish("Umidade", numero);
+    client.loop();
+
+  }
+}
