@@ -106,26 +106,25 @@ $ karma test
 
 
 # 5) Utilizando o Python no server com auxílio da MathPI:		
-Dillinger is very easy to install and deploy in a Docker container.
+Dentro da pasta "my_flash_app", basta rodar os seguintes comandos:
 
-By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+Por padrão será exposta a porta 5000, do endereço local, onde consumiremos a instância AWS:
 
 ```sh
-cd dillinger
-docker build -t joemccann/dillinger:${package.json.version} .
+export FLASK_APP=extract_DB
+flask run
 ```
-This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out `${package.json.version}` with the actual version of Dillinger.
-
-Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+OBS: Na pasta my_flash_app/ basta executar os seguintes comandos antes de rodar flusk:
 
 ```sh
-docker run -d -p 8000:8080 --restart="always" <youruser>/dillinger:${package.json.version}
+python3 -m venv venv
+source venv/bin/activate
 ```
 
-Verify the deployment by navigating to your server address in your preferred browser.
+Verifique no browser para atestar o resultado das queries feitas no MySQL:
 
 ```sh
-127.0.0.1:8000
+127.0.0.1:5000
 ```
 
 #### Equipe:
