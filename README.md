@@ -1,14 +1,18 @@
 # Initial page
 
-## Hackaton Manuel 2019 - Projeto Clold
+## Hackaton Manuel 2019 - Projeto Cloud
 
 [![N\|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-## 1\) Conheça nosso App em Flutter!
+## About 
+
+### Meet our App in Flutter!
 
 ![](.gitbook/assets/manuel.jpg)
+
+![](.gitbook/assets/9b0b6e35-958b-4f00-b872-c499643eacf1.jpg)
 
 ## 2\) Usamos o Arduino + Wifi para nossa solução
 
