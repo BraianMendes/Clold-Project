@@ -1,18 +1,18 @@
-# Initial page
-
-## Hackaton Manuel 2019 - Projeto Cloud
-
-[![N\|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+# Hackaton Manuel 2019 - Cloud Project
 
 ## About 
+
+Mobile application using ALTU artificial intelligence, integrated into an embedded device. Designed to track a senior person, communicate with others via SMS and calls, play music, and if necessary perform actions according to data collected from the hardware. It uses Speach to Text and Text to Speach technologies in the application.  
+  
+Powered by ALTU artificial intelligence from Smarkio company.
+
+![N\|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+
+## 
 
 ### Meet our App in Flutter!
 
 ![](.gitbook/assets/manuel.jpg)
-
-![](.gitbook/assets/9b0b6e35-958b-4f00-b872-c499643eacf1.jpg)
 
 ## 2\) Usamos o Arduino + Wifi para nossa solução
 
